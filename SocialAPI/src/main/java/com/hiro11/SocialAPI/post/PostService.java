@@ -10,7 +10,7 @@ import com.hiro11.SocialAPI.user.User;
 
 @Service
 public class PostService {
-	
+
 	User user1 = new User("u1", "Jany", "Lawrence", new Location("l1", "Lagos"), "Jany@gmail.com");
 
 	User user2 = new User("u2", "Jadon", "Mills", new Location("l2", "Asaba"), "Jadon@gmail.com");
@@ -24,5 +24,11 @@ public class PostService {
 	public List<Post> getAllPosts() {
 		return posts;
 	}
-	
+
+	public Post getPost(String id) {
+		Post post = posts.stream().filter(t -> id.equals(t.getId())).findFirst().orElse(null);
+
+		return post;
+	}
+
 }

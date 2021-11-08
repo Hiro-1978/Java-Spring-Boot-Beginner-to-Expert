@@ -17,4 +17,14 @@ public class LocationService {
 
 		return locations;
 	}
+	
+	public Location getLocation(String id) {
+	    Location location = locations.stream()
+		.filter(t -> id.equals(t.getId()))
+		.findFirst()
+		.orElse(null);
+			
+	    return location;
+	}
+	
 }
