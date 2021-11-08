@@ -1,6 +1,6 @@
-package post;
+package com.hiro11.SocialAPI.post;
 
-import user.User;
+import com.hiro11.SocialAPI.user.User;
 
 public class Post {
 	private String id;

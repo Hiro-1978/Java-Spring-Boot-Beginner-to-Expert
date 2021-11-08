@@ -3,6 +3,7 @@ package com.hiro11.SocialAPI;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class welcomeController {	
 	
@@ -10,5 +11,4 @@ public class welcomeController {
 	public static String welcome() {
 		return "Welcome to Spring Boot";
 	}
-
 }

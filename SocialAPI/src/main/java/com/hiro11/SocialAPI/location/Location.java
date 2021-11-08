@@ -1,4 +1,4 @@
-package location;
+package com.hiro11.SocialAPI.location;
 
 public class Location {
 	private String id;

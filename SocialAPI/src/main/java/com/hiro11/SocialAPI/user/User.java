@@ -1,6 +1,6 @@
-package user;
+package com.hiro11.SocialAPI.user;
 
-import location.Location;
+import com.hiro11.SocialAPI.location.Location;
 
 public class User {
 	private String id;
