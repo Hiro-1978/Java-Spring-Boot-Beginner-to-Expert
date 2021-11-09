@@ -1,7 +1,12 @@
 package com.hiro11.SocialAPI.student;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Student {
 
+	@Id
 	private String id;
 	private String name;
 	private String department;
