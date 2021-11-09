@@ -30,4 +30,9 @@ public class LocationController {
 		locationService.addLocation(location);
 	}
 	
+	@RequestMapping(value = "/locations/{id}", method = RequestMethod.PUT)
+	public void updateLocation(@RequestBody Location location, @PathVariable String id) {
+	     locationService.updateLocation(id, location);
+	}
+	
 }

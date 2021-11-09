@@ -20,7 +20,7 @@ public class PostService {
 
 	Post post2 = new Post("p2", "02-Jan-19", user2, "We all need someone");
 
-	//List<Post> posts = Arrays.asList(post1, post2);
+	// List<Post> posts = Arrays.asList(post1, post2);
 	List<Post> posts = new ArrayList<>(Arrays.asList(post1, post2));
 
 	public List<Post> getAllPosts() {
@@ -34,7 +34,20 @@ public class PostService {
 	}
 
 	public void addPost(Post post) {
-	     posts.add(post);
+		posts.add(post);
 	}
-	
+
+	public void updatePost(String id, Post post) {
+
+		for (int i = 0; i < posts.size(); i++) {
+
+			Post p = posts.get(i);
+
+			if (p.equals(post)) {
+
+				posts.set(i, post);
+			}
+		}
+	}
+
 }

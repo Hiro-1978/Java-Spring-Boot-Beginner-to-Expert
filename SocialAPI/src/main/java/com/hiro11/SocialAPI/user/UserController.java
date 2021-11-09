@@ -17,24 +17,33 @@ public class UserController {
 
 	@Autowired // เรียกใช้งาน Service
 	private UserService userService;
-	
+
 	@RequestMapping(value = "/users")
 	public List<User> getAllUsers() {
-		//ไปที่ UserService แทนแล้วเรียกใช้งานผ่าน UserService แทน
-		/*User user1 = new User("u1", "Jany", "Lawrence", new Location("l1", "Lagos"), "Jany@gmail.com");
-		User user2 = new User("u2", "Jadon", "Mills", new Location("l2", "Asaba"), "Jadon@gmail.com");
-		return Arrays.asList(user1, user2);*/
-		return userService.getAllUsers();	
+		// ไปที่ UserService แทนแล้วเรียกใช้งานผ่าน UserService แทน
+		/*
+		 * User user1 = new User("u1", "Jany", "Lawrence", new Location("l1", "Lagos"),
+		 * "Jany@gmail.com"); User user2 = new User("u2", "Jadon", "Mills", new
+		 * Location("l2", "Asaba"), "Jadon@gmail.com"); return Arrays.asList(user1,
+		 * user2);
+		 */
+		return userService.getAllUsers();
 	}
-	
+
 	@RequestMapping(value = "/users/{id}")
 	public User getUser(@PathVariable String id) {
-	    return userService.getUser(id);
+		return userService.getUser(id);
 	}
-	
-	@RequestMapping(value="/users", method = RequestMethod.POST)
+
+	//Post
+	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	public void addUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
-	
+
+	// Update
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
+	public void getUser(@PathVariable String id, @RequestBody User user) {
+		userService.updateUser(id, user);
+	}
 }

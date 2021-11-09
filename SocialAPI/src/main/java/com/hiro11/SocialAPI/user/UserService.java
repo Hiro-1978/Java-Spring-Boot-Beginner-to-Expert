@@ -15,7 +15,7 @@ public class UserService {
 
 	User user2 = new User("u2", "Jadon", "Mills", new Location("l2", "Asaba"), "Jadon@gmail.com");
 
-	//private List<User> users = Arrays.asList(user1, user2);
+	// private List<User> users = Arrays.asList(user1, user2);
 	private List<User> users = new ArrayList<>(Arrays.asList(user1, user2));
 
 	public List<User> getAllUsers() {
@@ -27,9 +27,24 @@ public class UserService {
 
 		return user;
 	}
-	
+
 	public void addUser(User user) {
-	    users.add(user);
+		users.add(user);
 	}
-	
+
+	public void updateUser(String id, User user) {
+
+		for (int i = 0; i < users.size(); i++) {
+
+			User u = users.get(i);
+
+			if (u.getId().equals(id)) {
+
+				users.set(i, user);
+
+				return;
+			}
+		}
+	}
+
 }
