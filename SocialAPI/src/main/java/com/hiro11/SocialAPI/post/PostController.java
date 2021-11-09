@@ -1,7 +1,7 @@
 package com.hiro11.SocialAPI.post;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.hiro11.SocialAPI.location.Location;
-import com.hiro11.SocialAPI.user.User;
 
 @RestController
 public class PostController {
@@ -21,15 +18,20 @@ public class PostController {
 
 	@RequestMapping(value = "/posts")
 	public List<Post> getAllPosts() {
-
 		return postService.getAllPosts();
 	}
 	
 	//Get Method
 	@RequestMapping(value = "/posts/{id}")
-	public Post getPost(@PathVariable String id) {
-	    return postService.getPost( id);
+	public Optional<Post> getPost(@PathVariable String id) {
+		return postService.getPost(id);		
 	}
+	
+	//Get Method
+	@RequestMapping(value = "/posts/id/{id}")
+	 public List<Post> getPostsByUser(@PathVariable String name) {
+	 	return postService.getPostsByUser(name);
+	 }
 	
 	//Post Method
 	@RequestMapping(value = "/posts", method = RequestMethod.POST)

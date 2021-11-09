@@ -1,14 +1,10 @@
 package com.hiro11.SocialAPI.post;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-
-import com.hiro11.SocialAPI.location.Location;
-import com.hiro11.SocialAPI.user.User;
 
 @Service
 public class PostService {
@@ -16,11 +12,9 @@ public class PostService {
 private PostRepository postRepository;
 	
 	public List<Post> getAllPosts() {
-	   List<Post> posts = new ArrayList<>();
-	   
+	   List<Post> posts = new ArrayList<>();	   
 	   postRepository.findAll()
-	   .forEach(posts::add);
-	   
+	   .forEach(posts::add);	   
 	   return posts;	 
 	}
 	
