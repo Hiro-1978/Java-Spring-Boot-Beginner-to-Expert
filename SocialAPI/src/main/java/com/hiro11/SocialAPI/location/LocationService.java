@@ -24,6 +24,14 @@ public class LocationService {
 		return location;		
 	}
 		
+	//returns list of locations base on a given name
+	public List<Location> getLocationsByName(String name) {
+	    List<Location> locations  = new ArrayList<>();		   
+	    locationRepository.findByName(name)
+	    .forEach(locations::add);		   
+	    return locations;
+	}
+	
 	public void addLocation(Location location) {
 		locationRepository.save(location);
 	}
@@ -36,7 +44,7 @@ public class LocationService {
 		locationRepository.deleteById(id);
 	}
 	
-	public void updateStudent(String id, Location location) {
+	public void updateLocation(String id, Location location) {
 		locationRepository.save(location);
 	}
 	/*

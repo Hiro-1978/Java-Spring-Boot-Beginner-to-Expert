@@ -2,6 +2,7 @@ package com.hiro11.SocialAPI.location;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,14 +18,20 @@ public class LocationController {
 
 	@RequestMapping(value = "/locations")
 	public List<Location> getAllLocations() {
-		return locationService.getAllLocations();
+		return locationService.getAllLocation();
 	}
 	
 	//Get Method
 	@RequestMapping(value = "/locations/{id}")
-	public Location getLocation(@PathVariable String id) {
-		return locationService.getLocation(id);
+	public Optional<Location> getLocation(@PathVariable String id) {
+		return locationService.getLocation(id);		
 	}
+	
+	//Get Method
+	@RequestMapping(value = "/locations/name/{name}")
+	 public List<Location> getLocationByName(@PathVariable String name) {
+	 	return locationService.getLocationsByName(name);
+	 }
 	
 	//Post Method
 	@RequestMapping(method=RequestMethod.POST, value="/locations")
