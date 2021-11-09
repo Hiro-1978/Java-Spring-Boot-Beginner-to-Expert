@@ -1,11 +1,21 @@
 package com.hiro11.SocialAPI.post;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import com.hiro11.SocialAPI.user.User;
 
+@Entity
 public class Post {
+	
+	@Id
 	private String id;
 	private String postdate;
+	
+	@ManyToOne
 	private User user;
+	
 	private String details;
 
 	public Post(String id, String postdate, User user, String details) {

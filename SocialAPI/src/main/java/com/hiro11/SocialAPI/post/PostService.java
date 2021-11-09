@@ -23,6 +23,15 @@ private PostRepository postRepository;
 	   
 	   return posts;	 
 	}
+	
+	public List<Post> getPostsByUser(String id) {
+		   List<Post> posts = new ArrayList<>();
+		   
+		   postRepository.findByUserId(id)
+		   .forEach(posts::add);
+		   
+		   return posts;	 
+		}
 	   	   
 	public Optional<Post> getPost(String id) {
 		return postRepository.findById(id);

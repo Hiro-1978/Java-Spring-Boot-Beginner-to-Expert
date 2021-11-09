@@ -1,12 +1,22 @@
 package com.hiro11.SocialAPI.user;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import com.hiro11.SocialAPI.location.Location;
 
+@Entity
 public class User {
+	
+	@Id
 	private String id;
 	private String firstname;
 	private String lastname;
+	
+	@ManyToOne
 	private Location location;
+	
 	private String email;
 
 	public User(String id, String firstname, String lastname, Location location, String email) {
