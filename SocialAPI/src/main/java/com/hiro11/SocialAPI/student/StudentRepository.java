@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface StudentRepository extends CrudRepository<Student, String> {
 	// With this the crud methods are now available
+	//this is a query method already implemented by JPA
+	//public Optional<Student> findById(String id);
+	
+	@Query("SELECT * FROM Student t where t.id = :id")
+	public Optional<Student> findById(@Param("id")String id);
+	
+	@Query("SELECT * FROM Student t where t.id = ?1 AND t.department = ?2")
+	public Optional<Student> findByNameAndDepartment(String name, String department);
+	
+	@Query("SELECT * FROM Student t where t.name = %?1%")
+	public Optional<Student> findByCriteria(String criteria);
 
 	@RestController
 	public class StudentController {
