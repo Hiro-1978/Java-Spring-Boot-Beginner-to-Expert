@@ -25,19 +25,28 @@ public class PostController {
 		return postService.getAllPosts();
 	}
 	
+	//Get Method
 	@RequestMapping(value = "/posts/{id}")
 	public Post getPost(@PathVariable String id) {
 	    return postService.getPost( id);
 	}
 	
+	//Post Method
 	@RequestMapping(value = "/posts", method = RequestMethod.POST)
 	public void addPost(@RequestBody Post post) {
 	     postService.addPost(post);
 	}
 	
+	//Update Method
 	@RequestMapping(value="/posts/{id}", method = RequestMethod.PUT)
 	public void updatePost(@PathVariable String id, @RequestBody Post post) {
 	      postService.updatePost(id, post);
 	}
-
+	
+	//Delete Method
+	@RequestMapping(value = "/posts/{id}", method = RequestMethod.DELETE)
+	 public void deletePost(@PathVariable String id) {
+	     postService.deletePost(id);
+	 }
+	
 }

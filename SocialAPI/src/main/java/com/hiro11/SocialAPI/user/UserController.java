@@ -30,20 +30,28 @@ public class UserController {
 		return userService.getAllUsers();
 	}
 
+	// Get Method -> select sql
 	@RequestMapping(value = "/users/{id}")
 	public User getUser(@PathVariable String id) {
 		return userService.getUser(id);
 	}
 
-	//Post
+	// Post Method - insert into sql
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	public void addUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
 
-	// Update
+	// Update Method -> update sql
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
 	public void getUser(@PathVariable String id, @RequestBody User user) {
 		userService.updateUser(id, user);
 	}
+
+	// Delete Method - > delete sql
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+	public void deleteUser(@PathVariable String id) {
+		userService.deleteUser(id);
+	}
+
 }

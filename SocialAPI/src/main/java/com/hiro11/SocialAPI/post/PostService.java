@@ -50,4 +50,8 @@ public class PostService {
 		}
 	}
 
+	public void deletePost(String id) {
+		posts.removeIf(p -> p.getId().equals(id));
+	}
+
 }

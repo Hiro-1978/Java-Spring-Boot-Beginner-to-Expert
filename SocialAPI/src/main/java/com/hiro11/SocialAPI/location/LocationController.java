@@ -20,19 +20,28 @@ public class LocationController {
 		return locationService.getAllLocations();
 	}
 	
+	//Get Method
 	@RequestMapping(value = "/locations/{id}")
 	public Location getLocation(@PathVariable String id) {
 		return locationService.getLocation(id);
 	}
 	
+	//Post Method
 	@RequestMapping(method=RequestMethod.POST, value="/locations")
 	public void addLocation(@RequestBody Location location) {
 		locationService.addLocation(location);
 	}
 	
+	//Update Method
 	@RequestMapping(value = "/locations/{id}", method = RequestMethod.PUT)
 	public void updateLocation(@RequestBody Location location, @PathVariable String id) {
 	     locationService.updateLocation(id, location);
 	}
+	
+	//Delete Method
+	@RequestMapping(value = "/location/{id}", method = RequestMethod.DELETE)
+	 public void deleteLocation(@PathVariable String id) {
+	     locationService.deleteLocation(id);
+	 }
 	
 }
