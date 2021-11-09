@@ -1,5 +1,6 @@
 package com.hiro11.SocialAPI.user;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +15,8 @@ public class UserService {
 
 	User user2 = new User("u2", "Jadon", "Mills", new Location("l2", "Asaba"), "Jadon@gmail.com");
 
-	private List<User> users = Arrays.asList(user1, user2);
+	//private List<User> users = Arrays.asList(user1, user2);
+	private List<User> users = new ArrayList<>(Arrays.asList(user1, user2));
 
 	public List<User> getAllUsers() {
 		return users;
@@ -25,4 +27,9 @@ public class UserService {
 
 		return user;
 	}
+	
+	public void addUser(User user) {
+	    users.add(user);
+	}
+	
 }

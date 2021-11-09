@@ -1,5 +1,6 @@
 package com.hiro11.SocialAPI.post;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class PostService {
 
 	Post post2 = new Post("p2", "02-Jan-19", user2, "We all need someone");
 
-	List<Post> posts = Arrays.asList(post1, post2);
+	//List<Post> posts = Arrays.asList(post1, post2);
+	List<Post> posts = new ArrayList<>(Arrays.asList(post1, post2));
 
 	public List<Post> getAllPosts() {
 		return posts;
@@ -31,4 +33,8 @@ public class PostService {
 		return post;
 	}
 
+	public void addPost(Post post) {
+	     posts.add(post);
+	}
+	
 }
