@@ -3,6 +3,7 @@ package com.hiro11.SocialAPI.student;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+//Auto Create Table In Database
 @Entity
 public class Student {
 
@@ -10,6 +11,10 @@ public class Student {
 	private String id;
 	private String name;
 	private String department;
+	
+	public Student() {
+	    //nothing goes here
+	}
 	
 	public Student(String id, String name, String department) {
 		super();
